@@ -6,7 +6,7 @@
 /*   By: tyuuki <tyuuki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 17:52:56 by tyuuki            #+#    #+#             */
-/*   Updated: 2021/12/12 13:20:26 by tyuuki           ###   ########.fr       */
+/*   Updated: 2021/12/12 17:31:33 by tyuuki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int	ft_decimal(va_list ap)
 
 	len = 0;
 	string = ft_itoa(va_arg(ap, int));
+	if(!string)
+	{
+		write(1, "(null)", 1);
+		free(string);
+		string = NULL;
+		return (6);
+	}
 	len = ft_strlen(string);
 	ft_putstr(string);
 	free(string);
@@ -45,6 +52,8 @@ int	ft_string(va_list ap)
 	if (!str)
 	{
 		write(1, "(null)", 6);
+		free(str);
+		str = NULL;
 		return (6);
 	}
 	len = ft_strlen(str);
@@ -75,6 +84,13 @@ int	unsigned_decimal(va_list ap)
 
 	len = 0;
 	string = ft_utoa(va_arg(ap, unsigned int));
+	if(!string)
+	{
+		write(1, "(null)", 1);
+		free(string);
+		string = NULL;
+		return (6);
+	}
 	ft_putstr(string);
 	len = ft_strlen(string);
 	free(string);

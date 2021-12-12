@@ -6,7 +6,7 @@
 #    By: tyuuki <tyuuki@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/11 21:01:02 by tyuuki            #+#    #+#              #
-#    Updated: 2021/12/11 21:22:03 by tyuuki           ###   ########.fr        #
+#    Updated: 2021/12/12 17:19:30 by tyuuki           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,16 +25,16 @@ FLAGS =		-Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ) ft_printf.h
-	ar -rcs $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	ar -rcs $(NAME) $?
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+%.o: %.c %.h
+	$(CC) $(FLAGS) -c $< -o $@ -MMD
 	
 re: fclean all
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) *.d
 
 fclean: clean
 	rm -f  $(NAME)
