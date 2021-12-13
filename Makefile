@@ -28,7 +28,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $?
 
-%.o: %.c %.h
+%.o: %.c
 	$(CC) $(FLAGS) -c $< -o $@ -MMD
 	
 re: fclean all
