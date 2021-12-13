@@ -30,7 +30,7 @@ int	ft_decimal(va_list ap)
 	string = ft_itoa(va_arg(ap, int));
 	if (!string)
 	{
-		write(1, "(null)", 1);
+		write(1, "(null)", 6);
 		free(string);
 		string = NULL;
 		return (6);
@@ -86,7 +86,7 @@ int	unsigned_decimal(va_list ap)
 	string = ft_utoa(va_arg(ap, unsigned int));
 	if (!string)
 	{
-		write(1, "(null)", 1);
+		write(1, "(null)", 6);
 		free(string);
 		string = NULL;
 		return (6);
